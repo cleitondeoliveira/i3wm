@@ -1,247 +1,321 @@
-# Dotfiles - Minimalist Mars Theme
+# i3wm Dotfiles - Minimalist Dark Theme
 
-A clean and minimalist Linux desktop configuration with a Mars-inspired color scheme (red/orange tones).
+A clean and minimalist i3wm desktop configuration with dark theme and elegant typography.
 
 ## Screenshots
 
-### Clean Desktop
-![Desktop](screenshots/01.png)
+![Desktop 1](screenshots/screenshot-1.png)
+![Desktop 2](screenshots/screenshot-2.png)
+![Desktop 3](screenshots/screenshot-3.png)
 
-### Terminal + File Manager
-![Terminal and File Manager](screenshots/02.png)
+## Features
 
-### System Monitor
-![System Monitor](screenshots/03.png)
-
-## Preview
-
-- **Window Manager:** i3-gaps
-- **Status Bar:** Polybar
-- **Compositor:** Picom
-- **Color Scheme:** Mars theme (red/orange accents)
-- **Font:** JetBrainsMono Nerd Font
-
-## Components
-
-### i3-gaps
-Tiling window manager with clean gaps and minimal borders.
-
-**Features:**
-- 5 workspaces
-- Floating windows for audio controls, file manager, and utilities
-- Auto-tiling support via `autotiling-rs`
-- Auto-lock after 10 minutes of inactivity
-- External HDMI monitor setup
-
-### Polybar
-Minimalist status bar with essential information.
-
-**Modules:**
-- i3 workspaces
-- Audio volume (PulseAudio)
-- Keyboard layout
-- RAM usage
-- CPU usage
-- Time (HH:MM)
-- System tray
-
-### Picom
-Lightweight compositor for transparency and smooth transitions.
-
-**Features:**
-- Window shadows
-- Fade in/out animations
-- Opacity rules for inactive windows
-- VSync enabled
-
-### Nitrogen
-Wallpaper manager.
-
-### SDDM
-Display manager with sddm-astronaut theme.
+- **Window Manager:** i3-gaps with minimal borders and gaps
+- **Status Bar:** i3blocks (lightweight and simple)
+- **Compositor:** Picom (transparency, shadows, fade)
+- **Terminal:** Kitty
+- **App Launcher:** Rofi (minimal dark theme)
+- **Screen Lock:** i3lock-color
+- **Font:** Iosevka (terminal, rofi, i3bar) + JetBrainsMono Nerd Font (i3lock)
+- **Color Scheme:** Dark with white/gray accents
 
 ## Dependencies
 
-### Required
+### Required Packages
 ```bash
-sudo pacman -S i3-gaps polybar picom nitrogen dunst rofi \
-               alacritty thunar firefox flameshot pavucontrol \
-               nm-applet blueman xautolock xorg-xrandr
+sudo pacman -S i3-gaps i3blocks picom nitrogen dunst rofi \
+               kitty thunar firefox flameshot pavucontrol \
+               nm-applet blueman xautolock xorg-xrandr \
+               i3lock-color
 ```
 
 ### Optional
 ```bash
-# Auto-tiling
+# Auto-tiling for smart window splitting
 yay -S autotiling-rs
 
 # Code editor
-yay -S zeditor
-
-# SDDM theme
-yay -S sddm-astronaut-theme
+yay -S zed
 ```
 
 ### Fonts
 ```bash
-sudo pacman -S ttf-jetbrains-mono-nerd
+sudo pacman -S ttf-iosevka-nerd ttf-jetbrains-mono-nerd
 ```
 
 ## Installation
 
-### 1. Backup existing configurations
+### Quick Install
+```bash
+git clone <your-repo-url> ~/i3wm-dotfiles
+cd ~/i3wm-dotfiles
+chmod +x install.sh
+./install.sh
+```
+
+### Manual Installation
+
+1. **Backup existing configs**
 ```bash
 mkdir -p ~/.config/backup
 mv ~/.config/i3 ~/.config/backup/i3_backup
-mv ~/.config/polybar ~/.config/backup/polybar_backup
+mv ~/.config/i3blocks ~/.config/backup/i3blocks_backup
 mv ~/.config/picom ~/.config/backup/picom_backup
-mv ~/.config/nitrogen ~/.config/backup/nitrogen_backup
+mv ~/.config/rofi ~/.config/backup/rofi_backup
+mv ~/.config/kitty ~/.config/backup/kitty_backup
+mv ~/.config/i3lock ~/.config/backup/i3lock_backup
 ```
 
-### 2. Clone repository
+2. **Install configs**
 ```bash
-git clone <your-repo-url> ~/dotfiles
-cd ~/dotfiles
-```
-
-### 3. Install configurations
-```bash
-# Create config directories
-mkdir -p ~/.config/{i3,polybar/scripts,picom,nitrogen}
-
-# Copy i3 config
-cp i3/config ~/.config/i3/config
-cp i3/power-menu.sh ~/.config/i3/power-menu.sh
+# i3
+cp -r i3 ~/.config/
 chmod +x ~/.config/i3/power-menu.sh
 
-# Copy polybar config
-cp polybar/config.ini ~/.config/polybar/config.ini
-cp polybar/launch.sh ~/.config/polybar/launch.sh
-chmod +x ~/.config/polybar/launch.sh
+# i3blocks
+cp -r i3blocks ~/.config/
+# You may need to install i3blocks-contrib scripts:
+# git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/scripts
 
-# Copy polybar scripts (optional, not currently used)
-cp polybar/scripts/bluetooth.sh ~/.config/polybar/scripts/bluetooth.sh
-chmod +x ~/.config/polybar/scripts/bluetooth.sh
+# Picom
+cp -r picom ~/.config/
 
-# Copy picom config
-cp picom/picom.conf ~/.config/picom/picom.conf
+# Rofi
+cp -r rofi ~/.config/
 
-# Copy nitrogen config
-cp nitrogen/nitrogen.cfg ~/.config/nitrogen/nitrogen.cfg
-cp nitrogen/bg-saved.cfg ~/.config/nitrogen/bg-saved.cfg
+# Kitty
+cp -r kitty ~/.config/
 
-# SDDM config (requires root)
-sudo cp sddm/sddm.conf /etc/sddm.conf
+# i3lock
+cp -r i3lock ~/.config/
+chmod +x ~/.config/i3lock/lock.sh
 ```
 
-### 4. Set wallpaper
-Place your wallpaper at:
+3. **Set wallpaper**
 ```bash
-~/Pictures/wallpapers/wallhaven-zm387v.jpg
-```
+# Install nitrogen if not already installed
+sudo pacman -S nitrogen
 
-Or use nitrogen to select a different wallpaper:
-```bash
+# Set your wallpaper
 nitrogen
 ```
 
-### 5. Reload i3
-Press `Mod+Shift+r` or logout and login again.
+4. **Reload i3**
+Press `Mod+Shift+R` or logout and login again.
+
+## Configuration Details
+
+### i3 Config
+- **Mod key:** Super/Windows key
+- **Gaps:** Inner 3px, Outer 1px
+- **Border:** 2px pixel borders
+- **Workspaces:** 1-5
+- **Monitor:** Configured for external HDMI (disable laptop display)
+- **Auto-lock:** 10 minutes of inactivity
+
+### Kitty Terminal
+- **Font:** Iosevka Term 11pt
+- **Opacity:** 95%
+- **Theme:** Dark with custom colors
+- **Padding:** 10px
+
+### i3blocks
+**Modules (left to right):**
+- Volume
+- Temperature
+- Memory
+- CPU
+- Time/Date
+- Battery
+
+### Picom
+- **Shadows:** Enabled
+- **Fade:** 0.03 step
+- **Opacity:** Inactive windows 85%
+- **Backend:** xrender
+- **VSync:** Enabled
+
+### Rofi
+- **Theme:** Minimalist dark (black background, white text)
+- **Font:** Iosevka 10pt
+- **Selection:** Dark gray highlight
+
+### i3lock
+- **Colors:** Black background, white text
+- **Clock:** Enabled with large display
+- **Blur:** 8px
+- **Fonts:** JetBrainsMono Nerd Font
 
 ## Key Bindings
 
 ### Applications
-- `Mod + Enter` - Terminal (Alacritty)
-- `Mod + Space` - App launcher (Rofi)
-- `Mod + F` - File manager (Thunar)
-- `Mod + Z` - Code editor (Zeditor)
-- `Mod + B` - Browser (Firefox)
-- `Mod + P` - Audio control (Pavucontrol)
-- `Print` - Screenshot (Flameshot)
+| Key | Action |
+|-----|--------|
+| `Mod + Enter` | Terminal (Kitty) |
+| `Mod + Space` | App launcher (Rofi) |
+| `Mod + F` | File manager (Thunar) |
+| `Mod + Z` | Code editor (Zed) |
+| `Mod + B` | Browser (Firefox) |
+| `Mod + P` | Audio control (Pavucontrol) |
+| `Print` | Screenshot (Flameshot) |
 
 ### Window Management
-- `Mod + Arrow Keys` - Navigate windows
-- `Mod + Shift + Arrow Keys` - Move windows
-- `Mod + V` - Split horizontally
-- `Mod + Shift + V` - Split vertically
-- `Mod + S` - Stacking layout
-- `Mod + W` - Tabbed layout
-- `Mod + E` - Toggle split layout
-- `Mod + T` / `Mod + Shift + Space` - Toggle floating
-- `Mod + Q` - Close window
+| Key | Action |
+|-----|--------|
+| `Mod + Arrow Keys` | Navigate windows |
+| `Mod + Shift + Arrow Keys` | Move windows |
+| `Mod + V` | Split horizontal |
+| `Mod + Shift + V` | Split vertical |
+| `Mod + S` | Stacking layout |
+| `Mod + W` | Tabbed layout |
+| `Mod + E` | Toggle split layout |
+| `Mod + T` | Toggle floating |
+| `Mod + Q` | Close window |
 
 ### Workspaces
-- `Mod + 1-5` - Switch to workspace 1-5
-- `Mod + Shift + 1-5` - Move window to workspace 1-5
+| Key | Action |
+|-----|--------|
+| `Mod + 1-5` | Switch to workspace |
+| `Mod + Shift + 1-5` | Move container to workspace |
 
 ### System
-- `Mod + Shift + C` - Reload i3 config
-- `Mod + Shift + R` - Restart i3
-- `Mod + Shift + X` - Lock screen
-- `Mod + Escape` - Power menu (logout/restart/shutdown)
+| Key | Action |
+|-----|--------|
+| `Mod + Shift + C` | Reload i3 config |
+| `Mod + Shift + R` | Restart i3 |
+| `Mod + Shift + X` | Lock screen |
+| `Mod + Escape` | Power menu |
 
-**Note:** `Mod` key is the Super/Windows key
+## Floating Windows
+
+These applications open as floating by default:
+- Pavucontrol (800x600, centered)
+- Flameshot (1200x700, centered)
+- Nitrogen (900x600, centered)
 
 ## Monitor Setup
 
-The configuration is set for an external HDMI monitor with the laptop display turned off.
+The default configuration disables the laptop display and uses only external HDMI.
 
-To modify, edit `~/.config/i3/config`:
+**To change:**
+
+Edit `~/.config/i3/config`:
 ```bash
-# For laptop display only
+# Laptop display only
 exec_always --no-startup-id xrandr --output eDP-1 --auto --primary --output HDMI-1 --off
 
-# For dual monitors
+# Dual monitors (laptop + HDMI)
 exec_always --no-startup-id xrandr --output eDP-1 --auto --output HDMI-1 --auto --right-of eDP-1
 ```
 
 ## Customization
 
-### Colors
-Edit color variables in:
-- `~/.config/i3/config` (lines 107-112)
-- `~/.config/polybar/config.ini` (lines 6-14)
+### Colors (i3)
+Edit color variables in `~/.config/i3/config` (lines 114-122):
+```
+set $bg-color            #0d1117
+set $inactive-bg-color   #161b22
+set $text-color          #c9d1d9
+set $accent-color        #898989
+set $border-color        #30363d
+set $focused-border      #c9d1d9
+```
 
-### Autostart
-Modify autostart applications in `~/.config/i3/config` (lines 138-174)
+### i3blocks Modules
+Edit `~/.config/i3blocks/config` to add/remove/modify modules.
 
-### Polybar Modules
-Add/remove modules in `~/.config/polybar/config.ini` (line 40)
+Available modules (require i3blocks-contrib):
+- Volume
+- Temperature
+- Memory
+- CPU
+- Battery
+- WiFi/Network
+- Time/Date
 
 ## Troubleshooting
 
-### Polybar not showing
+### i3blocks not showing modules
 ```bash
-# Check if polybar is running
-ps aux | grep polybar
+# Check if i3blocks-contrib scripts are installed
+ls ~/.config/i3blocks/scripts/
 
-# Manually restart
-~/.config/polybar/launch.sh
+# If missing, clone the repo:
+git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/scripts
 ```
 
 ### Picom not starting
 ```bash
-# Check picom errors
+# Test picom with config
 picom --config ~/.config/picom/picom.conf
 
-# Try different backend
-# Edit ~/.config/picom/picom.conf and change backend to "glx"
+# Try different backend (edit picom.conf)
+backend = "glx"  # instead of "xrender"
 ```
 
 ### Wallpaper not loading
 ```bash
-# Manually restore wallpaper
 nitrogen --restore
-
-# Or set it again
-nitrogen
 ```
+
+### i3lock not working
+```bash
+# Test i3lock manually
+~/.config/i3lock/lock.sh
+
+# Make sure i3lock-color is installed
+yay -S i3lock-color
+```
+
+### Fonts not rendering correctly
+```bash
+# Refresh font cache
+fc-cache -fv
+
+# Verify fonts are installed
+fc-list | grep -i iosevka
+fc-list | grep -i jetbrains
+```
+
+## Repository Structure
+
+```
+i3wm/
+├── i3/
+│   ├── config              # i3 main configuration
+│   └── power-menu.sh       # Power menu script
+├── i3blocks/
+│   └── config              # i3blocks configuration
+├── i3lock/
+│   └── lock.sh             # Lock screen script
+├── kitty/
+│   └── kitty.conf          # Kitty terminal config
+├── picom/
+│   └── picom.conf          # Compositor config
+├── polybar/
+│   └── config.ini          # Polybar config (alternative)
+├── rofi/
+│   └── config.rasi         # Rofi launcher theme
+├── screenshots/            # Desktop screenshots
+├── install.sh              # Installation script
+└── README.md               # This file
+```
+
+## Notes
+
+- **Polybar config is included** but not used by default (i3blocks is used instead)
+- To switch to Polybar: uncomment line 158 in `~/.config/i3/config` and comment out the i3bar section (lines 160-179)
+- i3blocks requires contrib scripts for advanced modules
+- Workspace bindings 6-9 are set to workspace 5 (edit if you want more workspaces)
 
 ## Credits
 
-- **Theme inspiration:** Mars colony aesthetic
-- **Font:** JetBrains (JetBrainsMono Nerd Font)
-- **SDDM Theme:** sddm-astronaut
+- **Fonts:** Iosevka, JetBrains Mono
+- **WM:** i3-gaps
+- **Bar:** i3blocks
+- **Compositor:** Picom
+- **Terminal:** Kitty
 
 ## License
 
-MIT License - Feel free to use and modify as you wish.
+MIT License - Free to use and modify.
