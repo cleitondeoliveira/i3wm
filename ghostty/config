@@ -1,0 +1,73 @@
+# ============================================
+# Ghostty Terminal Configuration
+# Based on Kitty configuration
+# ============================================
+
+# Font Configuration
+font-family = Iosevka Term
+font-size = 11
+
+# Window Configuration
+background-opacity = 0.95
+window-padding-x = 10
+window-padding-y = 10
+window-decoration = false
+
+# Cursor Configuration
+cursor-style = block
+cursor-style-blink = false
+
+# ============================================
+# Colors - Dark Theme
+# ============================================
+
+# Primary colors
+foreground = c9d1d9
+background = 0d1117
+
+# Cursor colors
+cursor-color = 898989
+cursor-text = 0d1117
+
+# Selection colors
+selection-foreground = 0d1117
+selection-background = f5d2b3
+
+# Normal colors (0-7)
+palette = 0=#484f58
+palette = 1=#ff7b72
+palette = 2=#3fb950
+palette = 3=#d29922
+palette = 4=#f5d2b3
+palette = 5=#bc8cff
+palette = 6=#39c5cf
+palette = 7=#b1bac4
+
+# Bright colors (8-15)
+palette = 8=#6e7681
+palette = 9=#ffa198
+palette = 10=#56d364
+palette = 11=#e3b341
+palette = 12=#898989
+palette = 13=#d2a8ff
+palette = 14=#56d4dd
+palette = 15=#f0f6fc
+
+# ============================================
+# Additional Settings
+# ============================================
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Scrollback
+scrollback-limit = 10000
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+
+# Window
+window-theme = dark
+confirm-close-surface = false
