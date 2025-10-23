@@ -71,3 +71,6 @@ clipboard-trim-trailing-spaces = true
 # Window
 window-theme = dark
 confirm-close-surface = false
+
+# Shell
+command = /usr/bin/bash -l -i

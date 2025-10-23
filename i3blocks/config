@@ -34,6 +34,13 @@ markup=pango
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
+[aur-update]
+#label=󰣇 
+command=$SCRIPT_DIR/aur-update/aur-update
+color=#FFFFFF
+separator=true
+interval=60
+
 
 [volume]
 label=󰕾 
@@ -116,6 +123,15 @@ label=LOAD
 interval=10
 
 
+# Media Player
+[mediaplayer]
+label=  
+command=$SCRIPT_DIR/mediaplayer/mediaplayer
+instance=spotify
+color=#ffffff
+interval=5
+signal=10
+
 # Date Time
 #
 
@@ -167,14 +183,26 @@ interval=30
 #
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#[keyindicator]
-#KEY=CAPS
-#markup=pango
-#interval=once
-#signal=11
+[keyindicator]
+command=$SCRIPT_DIR/keyindicator/keyindicator
+KEY=CAPS
+TEXT_ON=CAPS
+TEXT_OFF=
+COLOR_ON=#da3633
+COLOR_OFF=#222222
+HIDE_WHEN_OFF=1
+markup=pango
+interval=once
+signal=11
 
-#[keyindicator]
-#KEY=NUM
-#markup=pango
-#interval=once
-#signal=11
+[keyindicator]
+command=$SCRIPT_DIR/keyindicator/keyindicator
+KEY=NUM
+TEXT_ON=NUM
+TEXT_OFF=
+COLOR_ON=#898989
+COLOR_OFF=#222222
+HIDE_WHEN_OFF=1
+markup=pango
+interval=once
+signal=11

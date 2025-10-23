@@ -12,8 +12,8 @@ set $mod Mod4
 # Terminal
 bindsym $mod+Return exec ghostty
 
-# Application launcher (dmenu)
-bindsym $mod+space exec ~/.local/bin/dmenu-launcher
+# Application launcher
+bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0d1117' -nf '#c9d1d9' -sb '#898989' -sf '#0d1117' -fn 'Iosevka-11'"
 
 # File manager
 bindsym $mod+f exec thunar
@@ -22,7 +22,7 @@ bindsym $mod+f exec thunar
 bindsym $mod+z exec zeditor
 
 # Browser
-bindsym $mod+b exec firefox
+bindsym $mod+b exec helium-browser
 
 # Screenshot
 bindsym Print exec flameshot gui
@@ -75,6 +75,10 @@ bindsym $mod+Shift+x exec ~/.config/i3lock/lock.sh
 # Power menu (logout, restart, shutdown)
 bindsym $mod+Escape exec ~/.config/i3/power-menu.sh
 
+# Key indicators (Caps Lock, Num Lock)
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
+
 # ============================================
 # Workspaces
 # ============================================
@@ -95,10 +99,10 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws5
-bindsym $mod+7 workspace $ws5
-bindsym $mod+8 workspace $ws5
-bindsym $mod+9 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -143,7 +147,6 @@ for_window [class="Pavucontrol"] floating enable, resize set 800 600, move posit
 for_window [class="flameshot"] floating enable, resize set 1200 700, move position center
 for_window [class="Blueman-manager"] floating enable, resize set 800 600, move position center
 for_window [class="Nitrogen"] floating enable, resize set 900 600, move position center
-# for_window [class="Thunar"] floating enable, resize set 1000 700, move position center
 
 # ============================================
 # Autostart Applications
@@ -154,9 +157,6 @@ exec_always --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto -
 
 # Wallpaper
 exec_always --no-startup-id nitrogen --restore
-
-# Status bar
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # i3bar configuration
 font pango:Iosevka 10
