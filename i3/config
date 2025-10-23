@@ -10,10 +10,10 @@ set $mod Mod4
 # ============================================
 
 # Terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec ghostty
 
-# Application launcher
-bindsym $mod+space exec rofi -show drun -theme ~/.config/rofi/config.rasi
+# Application launcher (dmenu)
+bindsym $mod+space exec ~/.local/bin/dmenu-launcher
 
 # File manager
 bindsym $mod+f exec thunar
@@ -141,6 +141,7 @@ for_window [class=".*"] border pixel 2
 
 for_window [class="Pavucontrol"] floating enable, resize set 800 600, move position center
 for_window [class="flameshot"] floating enable, resize set 1200 700, move position center
+for_window [class="Blueman-manager"] floating enable, resize set 800 600, move position center
 for_window [class="Nitrogen"] floating enable, resize set 900 600, move position center
 # for_window [class="Thunar"] floating enable, resize set 1000 700, move position center
 
