@@ -13,9 +13,10 @@ A clean and minimalist i3wm desktop configuration with dark theme and elegant ty
 - **Window Manager:** i3-gaps with minimal borders and gaps
 - **Status Bar:** i3blocks (lightweight and simple)
 - **Compositor:** Picom (transparency, shadows, fade)
-- **Terminal:** Kitty
+- **Terminal:** Ghostty (default) / Kitty / Alacritty
 - **App Launcher:** Rofi (minimal dark theme)
 - **Screen Lock:** i3lock-color
+- **Wallpaper Manager:** Nitrogen
 - **Font:** Iosevka (terminal, rofi, i3bar) + JetBrainsMono Nerd Font (i3lock)
 - **Color Scheme:** Dark with white/gray accents
 
@@ -24,13 +25,18 @@ A clean and minimalist i3wm desktop configuration with dark theme and elegant ty
 ### Required Packages
 ```bash
 sudo pacman -S i3-gaps i3blocks picom nitrogen dunst rofi \
-               kitty thunar firefox flameshot pavucontrol \
-               nm-applet blueman xautolock xorg-xrandr \
-               i3lock-color
+               ghostty kitty thunar firefox flameshot pavucontrol \
+               nm-applet blueman xautolock xorg-xrandr
+
+# i3lock-color (from AUR)
+yay -S i3lock-color
 ```
 
 ### Optional
 ```bash
+# Alternative terminal emulator
+sudo pacman -S alacritty
+
 # Auto-tiling for smart window splitting
 yay -S autotiling-rs
 
@@ -62,7 +68,10 @@ mv ~/.config/i3 ~/.config/backup/i3_backup
 mv ~/.config/i3blocks ~/.config/backup/i3blocks_backup
 mv ~/.config/picom ~/.config/backup/picom_backup
 mv ~/.config/rofi ~/.config/backup/rofi_backup
+mv ~/.config/ghostty ~/.config/backup/ghostty_backup
 mv ~/.config/kitty ~/.config/backup/kitty_backup
+mv ~/.config/alacritty ~/.config/backup/alacritty_backup
+mv ~/.config/nitrogen ~/.config/backup/nitrogen_backup
 mv ~/.config/i3lock ~/.config/backup/i3lock_backup
 ```
 
@@ -83,8 +92,13 @@ cp -r picom ~/.config/
 # Rofi
 cp -r rofi ~/.config/
 
-# Kitty
+# Terminals (choose the ones you want)
+cp -r ghostty ~/.config/
 cp -r kitty ~/.config/
+cp -r alacritty ~/.config/
+
+# Nitrogen
+cp -r nitrogen ~/.config/
 
 # i3lock
 cp -r i3lock ~/.config/
@@ -113,15 +127,29 @@ Press `Mod+Shift+R` or logout and login again.
 - **Monitor:** Configured for external HDMI (disable laptop display)
 - **Auto-lock:** 10 minutes of inactivity
 
-### Kitty Terminal
+### Terminals
+
+**Ghostty (default):**
+- **Font:** Iosevka Nerd Font 11pt
+- **Theme:** Catppuccin Mocha
+- **Opacity:** 95%
+- **Padding:** 10px
+
+**Kitty:**
 - **Font:** Iosevka Term 11pt
 - **Opacity:** 95%
 - **Theme:** Dark with custom colors
 - **Padding:** 10px
 
+**Alacritty:**
+- **Font:** Iosevka Nerd Font 10pt
+- **Opacity:** 95%
+- **Theme:** Catppuccin Mocha
+
 ### i3blocks
 **Modules (left to right):**
-- Volume
+- Audio Sink Selector
+- Volume (PipeWire)
 - Temperature
 - Memory
 - CPU
@@ -151,7 +179,7 @@ Press `Mod+Shift+R` or logout and login again.
 ### Applications
 | Key | Action |
 |-----|--------|
-| `Mod + Enter` | Terminal (Kitty) |
+| `Mod + Enter` | Terminal (Ghostty) |
 | `Mod + Space` | App launcher (Rofi) |
 | `Mod + F` | File manager (Thunar) |
 | `Mod + Z` | Code editor (Zed) |
@@ -285,17 +313,25 @@ i3wm/
 │   ├── config              # i3 main configuration
 │   └── power-menu.sh       # Power menu script
 ├── i3blocks/
-│   └── config              # i3blocks configuration
+│   ├── config              # i3blocks configuration
+│   └── scripts/            # i3blocks contrib scripts
 ├── i3lock/
 │   └── lock.sh             # Lock screen script
+├── ghostty/
+│   └── config              # Ghostty terminal config (default)
 ├── kitty/
 │   └── kitty.conf          # Kitty terminal config
+├── alacritty/
+│   └── alacritty.toml      # Alacritty terminal config
 ├── picom/
 │   └── picom.conf          # Compositor config
-├── polybar/
-│   └── config.ini          # Polybar config (alternative)
 ├── rofi/
-│   └── config.rasi         # Rofi launcher theme
+│   ├── config.rasi         # Rofi launcher config
+│   ├── power-menu.rasi     # Power menu theme
+│   └── theme.rasi          # Main rofi theme
+├── nitrogen/
+│   ├── bg-saved.cfg        # Saved wallpaper config
+│   └── nitrogen.cfg        # Nitrogen settings
 ├── screenshots/            # Desktop screenshots
 ├── install.sh              # Installation script
 └── README.md               # This file
@@ -303,18 +339,20 @@ i3wm/
 
 ## Notes
 
-- **Polybar config is included** but not used by default (i3blocks is used instead)
-- To switch to Polybar: uncomment line 158 in `~/.config/i3/config` and comment out the i3bar section (lines 160-179)
+- **Ghostty is the default terminal** (set in i3 config). You can switch to Kitty or Alacritty by editing the i3 config
+- All three terminal configs are included - choose the one you prefer
 - i3blocks requires contrib scripts for advanced modules
 - Workspace bindings 6-9 are set to workspace 5 (edit if you want more workspaces)
+- Nitrogen configs save your wallpaper preferences
 
 ## Credits
 
-- **Fonts:** Iosevka, JetBrains Mono
+- **Fonts:** Iosevka Nerd Font, JetBrains Mono Nerd Font
 - **WM:** i3-gaps
 - **Bar:** i3blocks
 - **Compositor:** Picom
-- **Terminal:** Kitty
+- **Terminals:** Ghostty (default), Kitty, Alacritty
+- **Theme:** Catppuccin Mocha (terminals)
 
 ## License
 
