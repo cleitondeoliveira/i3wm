@@ -1,5 +1,3 @@
-# i3blocks config file
-#
 # Please see man i3blocks for a complete reference!
 # The man page is also hosted at http://vivien.github.io/i3blocks
 #
@@ -35,12 +33,19 @@ markup=pango
 # The second parameter overrides the mixer selection
 # See the script for details.
 [aur-update]
-#label=󰣇 
+#label=󰣇
 command=$SCRIPT_DIR/aur-update/aur-update
 color=#FFFFFF
 separator=true
-interval=60
+interval=600
 
+# Audio Sink Selector
+[audio-sink]
+command=$SCRIPT_DIR/audio-sink/audio-sink
+color=#FFFFFF
+interval=once
+separator=true
+signal=9
 
 [volume]
 label=󰕾 

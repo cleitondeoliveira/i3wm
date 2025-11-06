@@ -11,7 +11,7 @@ configuration {
     /* Cores principais - tema dark moderno */
     background:                  rgba ( 30, 30, 46, 95 % );
     foreground:                  rgba ( 205, 214, 244, 100 % );
-    border-color:                rgba ( 137, 180, 250, 80 % );
+    border-color:                rgba ( 108, 112, 134, 80 % );
 
     /* Normal state */
     normal-background:           @background;
@@ -19,9 +19,9 @@ configuration {
     alternate-normal-background: rgba ( 49, 50, 68, 60 % );
     alternate-normal-foreground: @foreground;
 
-    /* Selected state - azul accent */
-    selected-normal-background:  rgba ( 137, 180, 250, 100 % );
-    selected-normal-foreground:  rgba ( 30, 30, 46, 100 % );
+    /* Selected state - cinza accent */
+    selected-normal-background:  rgba ( 108, 112, 134, 100 % );
+    selected-normal-foreground:  rgba ( 205, 214, 244, 100 % );
 
     /* Active state - verde/cyan */
     active-background:           rgba ( 30, 30, 46, 20 % );
