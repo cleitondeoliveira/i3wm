@@ -75,9 +75,7 @@ bindsym $mod+Shift+x exec ~/.config/i3lock/lock.sh
 # Power menu (logout, restart, shutdown)
 bindsym $mod+Escape exec ~/.config/i3/power-menu.sh
 
-# Key indicators (Caps Lock, Num Lock)
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
+# Key indicators (Caps Lock, Num Lock) are handled by polybar
 
 # ============================================
 # Workspaces
@@ -158,26 +156,11 @@ exec_always --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto -
 # Wallpaper
 exec_always --no-startup-id nitrogen --restore
 
-# i3bar configuration
+# Font for window titles
 font pango:Iosevka 10
 
-bar {
-    status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks -c ~/.config/i3blocks/config
-
-    position top
-
-    colors {
-        background $bg-color
-        statusline $text-color
-        separator  $border-color
-
-        #                  border            background         text
-        focused_workspace  $accent-color     $accent-color      $bg-color
-        active_workspace   $border-color     $inactive-bg-color $text-color
-        inactive_workspace $border-color     $bg-color          $inactive-text-color
-        urgent_workspace   $urgent-bg-color  $urgent-bg-color   $text-color
-    }
-}
+# Polybar - status bar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Compositor (blur, transparency)
 exec --no-startup-id picom
