@@ -70,16 +70,18 @@ backup_config() {
 }
 
 backup_config "i3"
-backup_config "i3blocks"
+backup_config "polybar"
 backup_config "picom"
 backup_config "rofi"
+backup_config "ghostty"
 backup_config "kitty"
 backup_config "i3lock"
+backup_config "nitrogen"
 
 # Create config directories
 echo ""
 print_info "Creating configuration directories..."
-mkdir -p ~/.config/{i3,i3blocks,picom,rofi,kitty,i3lock}
+mkdir -p ~/.config/{i3,polybar,picom,rofi,ghostty,kitty,i3lock,nitrogen}
 print_success "Directories created"
 
 # Install i3 config
@@ -96,20 +98,18 @@ else
     print_error "i3 config directory not found!"
 fi
 
-# Install i3blocks config
+# Install polybar config
 echo ""
-print_info "Installing i3blocks configuration..."
-if [ -f "$SCRIPT_DIR/i3blocks/config" ]; then
-    cp "$SCRIPT_DIR/i3blocks/config" ~/.config/i3blocks/config
-    print_success "i3blocks config installed"
-
-    # Check if i3blocks-contrib is needed
-    if [ ! -d ~/.config/i3blocks/scripts ]; then
-        print_warning "i3blocks scripts not found. You may need to install i3blocks-contrib:"
-        echo "  git clone https://github.com/vivien/i3blocks-contrib ~/.config/i3blocks/scripts"
+print_info "Installing polybar configuration..."
+if [ -d "$SCRIPT_DIR/polybar" ]; then
+    cp -r "$SCRIPT_DIR/polybar/"* ~/.config/polybar/
+    chmod +x ~/.config/polybar/launch.sh
+    if [ -d ~/.config/polybar/scripts ]; then
+        chmod +x ~/.config/polybar/scripts/*.sh 2>/dev/null || true
     fi
+    print_success "Polybar config installed"
 else
-    print_error "i3blocks config not found!"
+    print_error "Polybar config not found!"
 fi
 
 # Install picom config
@@ -122,24 +122,30 @@ else
     print_error "Picom config not found!"
 fi
 
-# Install rofi config
+# Install rofi config (for power menu)
 echo ""
 print_info "Installing rofi configuration..."
-if [ -f "$SCRIPT_DIR/rofi/config.rasi" ]; then
-    cp "$SCRIPT_DIR/rofi/config.rasi" ~/.config/rofi/config.rasi
-    print_success "Rofi config installed"
+if [ -d "$SCRIPT_DIR/rofi" ]; then
+    cp -r "$SCRIPT_DIR/rofi/"* ~/.config/rofi/
+    print_success "Rofi config installed (power menu)"
 else
     print_error "Rofi config not found!"
 fi
 
-# Install kitty config
+# Install terminal configs
 echo ""
-print_info "Installing kitty configuration..."
+print_info "Installing terminal configurations..."
+
+# Ghostty
+if [ -f "$SCRIPT_DIR/ghostty/config" ]; then
+    cp "$SCRIPT_DIR/ghostty/config" ~/.config/ghostty/config
+    print_success "Ghostty config installed"
+fi
+
+# Kitty
 if [ -f "$SCRIPT_DIR/kitty/kitty.conf" ]; then
     cp "$SCRIPT_DIR/kitty/kitty.conf" ~/.config/kitty/kitty.conf
     print_success "Kitty config installed"
-else
-    print_error "Kitty config not found!"
 fi
 
 # Install i3lock config
@@ -151,6 +157,14 @@ if [ -f "$SCRIPT_DIR/i3lock/lock.sh" ]; then
     print_success "i3lock config installed"
 else
     print_error "i3lock config not found!"
+fi
+
+# Install nitrogen config
+echo ""
+print_info "Installing nitrogen configuration..."
+if [ -d "$SCRIPT_DIR/nitrogen" ]; then
+    cp -r "$SCRIPT_DIR/nitrogen/"* ~/.config/nitrogen/
+    print_success "Nitrogen config installed"
 fi
 
 # Check dependencies
@@ -168,20 +182,26 @@ check_dependency() {
 echo ""
 echo "Core dependencies:"
 check_dependency "i3"
-check_dependency "i3blocks"
+check_dependency "polybar"
 check_dependency "picom"
+check_dependency "dmenu"
+check_dependency "j4-dmenu-desktop"
 check_dependency "rofi"
-check_dependency "kitty"
-check_dependency "i3lock"
 check_dependency "nitrogen"
 check_dependency "dunst"
 check_dependency "flameshot"
 check_dependency "pavucontrol"
 
 echo ""
+echo "Terminal emulators:"
+check_dependency "ghostty"
+check_dependency "kitty"
+
+echo ""
 echo "Optional dependencies:"
+check_dependency "i3lock"
 check_dependency "autotiling-rs"
-check_dependency "zeditor"
+check_dependency "code"
 
 # Check fonts
 echo ""

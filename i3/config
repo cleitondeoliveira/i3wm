@@ -18,8 +18,8 @@ bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0d1117' -nf '#c
 # File manager
 bindsym $mod+f exec thunar
 
-# Code
-bindsym $mod+z exec zeditor
+# Code editor
+bindsym $mod+z exec code
 
 # Browser
 bindsym $mod+b exec helium-browser
