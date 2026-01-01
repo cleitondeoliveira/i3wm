@@ -4,6 +4,14 @@ Cyberpunk-themed i3wm configuration with red/neon aesthetics and dark background
 
 ![Desktop](screenshots/screenshot-1.png)
 
+## Screenshots
+
+![Screenshot 1](screenshots/imagem01.png)
+
+![Screenshot 2](screenshots/imagem02.png)
+
+![Screenshot 3](screenshots/imagem03.png)
+
 ## Features
 
 - **WM:** i3-gaps with red neon borders
