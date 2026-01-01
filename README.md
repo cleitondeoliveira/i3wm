@@ -1,20 +1,20 @@
-# i3wm Dotfiles - Minimalist Setup
+# i3wm Dotfiles - Cyberpunk Red/Neon Theme
 
-Clean and minimalist i3wm configuration with dark theme.
+Cyberpunk-themed i3wm configuration with red/neon aesthetics and dark background.
 
 ![Desktop](screenshots/screenshot-1.png)
 
 ## Features
 
-- **WM:** i3-gaps
-- **Bar:** Polybar
-- **Compositor:** Picom
-- **Terminals:** Ghostty (default), Kitty
+- **WM:** i3-gaps with red neon borders
+- **Bar:** Polybar with cyberpunk theme
+- **Compositor:** Picom with red glow shadows
+- **Terminal:** Ghostty with optimized colors
 - **Launcher:** dmenu + j4-dmenu-desktop
-- **Power Menu:** Rofi
-- **Lock:** i3lock-color
+- **Notifications:** Dunst with red/neon theme
+- **Lock:** i3lock-color with cyberpunk theme
 - **DM:** LightDM + mini-greeter
-- **Theme:** GitHub Dark colors
+- **Theme:** Cyberpunk Red/Neon (#ff0055, #ff2a6d, #0a0a0a)
 - **Fonts:** Iosevka Nerd Font
 
 ## Quick Install
@@ -39,15 +39,10 @@ This will:
 **Core packages:**
 ```bash
 sudo pacman -S i3-gaps polybar picom dmenu j4-dmenu-desktop \
-               rofi nitrogen dunst thunar firefox \
+               nitrogen dunst thunar firefox ghostty \
                flameshot pavucontrol nm-applet blueman \
                xautolock xorg-xrandr ttf-iosevka-nerd \
                ttf-jetbrains-mono-nerd
-```
-
-**Terminals:**
-```bash
-sudo pacman -S ghostty kitty
 ```
 
 **AUR packages:**
@@ -101,10 +96,10 @@ Press `Mod+Shift+R` or logout and login again.
 | `Mod+T` | Toggle floating |
 | `Mod+Q` | Close window |
 
-### Workspaces
+### Workspaces (Roman Numerals: I-IX)
 | Key | Action |
 |-----|--------|
-| `Mod+1-5` | Switch workspace |
+| `Mod+1-9` | Switch workspace |
 | `Mod+Shift+1-5` | Move to workspace |
 
 ### System
@@ -113,36 +108,36 @@ Press `Mod+Shift+R` or logout and login again.
 | `Mod+Shift+C` | Reload config |
 | `Mod+Shift+R` | Restart i3 |
 | `Mod+Shift+X` | Lock screen |
-| `Mod+Escape` | Power menu (Rofi) |
+| `Mod+Escape` | Power menu |
 
 ## Customization
 
-### Colors
+### Colors (Cyberpunk Red/Neon Theme)
 
 Edit `~/.config/i3/config`:
 ```
-set $bg-color            #0d1117
-set $inactive-bg-color   #161b22
-set $text-color          #c9d1d9
-set $accent-color        #898989
-set $border-color        #30363d
-set $focused-border      #c9d1d9
+set $bg-color            #0a0a0a
+set $inactive-bg-color   #1a0a0f
+set $text-color          #ff2a6d
+set $accent-color        #ff073a
+set $border-color        #330011
+set $focused-border      #ff0055
 ```
 
 Edit `~/.config/polybar/config.ini`:
 ```ini
 [colors]
-background = #0d1117
-foreground = #c9d1d9
-primary = #898989
-alert = #da3633
+background = #0a0a0a
+foreground = #ff2a6d
+primary = #ff0055
+alert = #ff0055
 ```
 
 ### dmenu Colors
 
 Edit `~/.config/i3/config` launcher line:
 ```bash
-bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0d1117' -nf '#c9d1d9' -sb '#898989' -sf '#0d1117' -fn 'Iosevka-11'"
+bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0a0a0a' -nf '#ff2a6d' -sb '#ff0055' -sf '#0a0a0a' -fn 'Iosevka-11'"
 ```
 
 ### Polybar Modules
@@ -209,13 +204,13 @@ sudo ./lightdm/setup-lightdm.sh
 i3wm/
 ├── i3/                    # i3 config + power menu
 ├── polybar/               # Polybar config + scripts
-├── picom/                 # Compositor config
-├── rofi/                  # App launcher themes
+├── picom/                 # Compositor config (red glow)
+├── dunst/                 # Notification daemon config
 ├── ghostty/               # Ghostty terminal config
-├── kitty/                 # Kitty terminal config
 ├── i3lock/                # Lock screen script
 ├── nitrogen/              # Wallpaper manager config
 ├── lightdm/               # Display manager config
+├── screenshots/           # Desktop screenshots
 ├── quick-setup.sh         # One-command full setup
 ├── install.sh             # Dotfiles installer
 └── README.md
@@ -223,23 +218,22 @@ i3wm/
 
 ## What's Included
 
-- **i3-gaps** with minimal borders (2px) and gaps (3px inner, 1px outer)
-- **Polybar** with CPU, temp, memory, audio, battery, updates modules
-- **Picom** for transparency (85% inactive), shadows, and smooth fading
-- **dmenu + j4-dmenu-desktop** for ultra-minimal app launcher (top bar)
-- **Rofi** for visual power menu (logout, restart, shutdown)
-- **i3lock-color** with blur effect and clock display
-- **LightDM mini-greeter** for ultra-minimal login screen
-- **Ghostty** as default terminal (Catppuccin Mocha theme)
-- **Kitty** as alternative terminal
-- **GitHub Dark** color scheme throughout
+- **i3-gaps** with red neon borders (3px) and gaps (6px inner, 2px outer)
+- **Polybar** with CPU, temp, memory, audio, battery, updates modules + red underline
+- **Picom** with red glow shadows (#ff0055), transparency (95%), and smooth fading
+- **dmenu + j4-dmenu-desktop** for minimal app launcher with cyberpunk colors
+- **Dunst** notification daemon with red/neon theme
+- **i3lock-color** with blur effect, clock display, and cyberpunk red theme
+- **LightDM mini-greeter** for minimal login screen
+- **Ghostty** as default terminal with optimized readable colors
+- **Cyberpunk Red/Neon** color scheme throughout (#ff0055, #ff2a6d, #0a0a0a)
 
 ## Credits
 
 - Fonts: Iosevka Nerd Font, JetBrains Mono Nerd Font
 - WM: i3-gaps
 - Bar: Polybar
-- Theme: GitHub Dark / Catppuccin Mocha
+- Theme: Cyberpunk Red/Neon (Custom)
 
 ## License
 

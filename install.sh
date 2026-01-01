@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # i3wm Dotfiles Installation Script
-# Minimalist Dark Theme
+# Cyberpunk Red/Neon Theme
 
 set -e
 
 echo "=========================================="
 echo "  i3wm Dotfiles Installation"
-echo "  Minimalist Dark Theme"
+echo "  Cyberpunk Red/Neon Theme"
 echo "=========================================="
 echo ""
 
@@ -72,16 +72,15 @@ backup_config() {
 backup_config "i3"
 backup_config "polybar"
 backup_config "picom"
-backup_config "rofi"
+backup_config "dunst"
 backup_config "ghostty"
-backup_config "kitty"
 backup_config "i3lock"
 backup_config "nitrogen"
 
 # Create config directories
 echo ""
 print_info "Creating configuration directories..."
-mkdir -p ~/.config/{i3,polybar,picom,rofi,ghostty,kitty,i3lock,nitrogen}
+mkdir -p ~/.config/{i3,polybar,picom,dunst,ghostty,i3lock,nitrogen}
 print_success "Directories created"
 
 # Install i3 config
@@ -122,30 +121,24 @@ else
     print_error "Picom config not found!"
 fi
 
-# Install rofi config (for power menu)
+# Install dunst config (notifications)
 echo ""
-print_info "Installing rofi configuration..."
-if [ -d "$SCRIPT_DIR/rofi" ]; then
-    cp -r "$SCRIPT_DIR/rofi/"* ~/.config/rofi/
-    print_success "Rofi config installed (power menu)"
+print_info "Installing dunst configuration..."
+if [ -f "$SCRIPT_DIR/dunst/dunstrc" ]; then
+    cp "$SCRIPT_DIR/dunst/dunstrc" ~/.config/dunst/dunstrc
+    print_success "Dunst config installed (notifications)"
 else
-    print_error "Rofi config not found!"
+    print_error "Dunst config not found!"
 fi
 
-# Install terminal configs
+# Install terminal config
 echo ""
-print_info "Installing terminal configurations..."
+print_info "Installing terminal configuration..."
 
 # Ghostty
 if [ -f "$SCRIPT_DIR/ghostty/config" ]; then
     cp "$SCRIPT_DIR/ghostty/config" ~/.config/ghostty/config
     print_success "Ghostty config installed"
-fi
-
-# Kitty
-if [ -f "$SCRIPT_DIR/kitty/kitty.conf" ]; then
-    cp "$SCRIPT_DIR/kitty/kitty.conf" ~/.config/kitty/kitty.conf
-    print_success "Kitty config installed"
 fi
 
 # Install i3lock config

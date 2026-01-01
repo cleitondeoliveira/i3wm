@@ -16,7 +16,7 @@ get_short_name() {
     local desc="$1"
     case "$desc" in
         *"Headphones"*)
-            echo "  Headphones"
+            echo " Headphones"
             ;;
         *"HDMI"*)
             echo "󱡫 HDMI"
@@ -28,7 +28,7 @@ get_short_name() {
             echo "  USB"
             ;;
         *)
-            echo "  Audio"
+            echo " Audio"
             ;;
     esac
 }

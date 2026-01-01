@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Power menu script
-choice=$(printf "󰗽 Logout\n󰜉 Restart\n󰐥 Shutdown" | rofi -dmenu -i -p "Power" -theme ~/.config/rofi/power-menu.rasi)
+choice=$(printf "󰗽  Logout\n󰜉  Restart\n󰐥  Shutdown" | rofi -dmenu -i -p "Power" -theme ~/.config/rofi/power-menu.rasi)
 
 case "$choice" in
     *"Logout"*)

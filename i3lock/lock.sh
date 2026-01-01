@@ -1,28 +1,27 @@
 #!/bin/bash
 # ============================================
-# i3lock-color - Minimalist Lock Screen
-# Clean black & white theme
+# i3lock-color - Cyberpunk Red/Neon Lock Screen
 # ============================================
 
 i3lock \
---color=000000 \
+--color=0a0a0a \
 --insidever-color=00000000 \
 --insidewrong-color=00000000 \
 --inside-color=00000000 \
---ringver-color=ffffff33 \
---ringwrong-color=cc241d33 \
---ring-color=ffffff11 \
+--ringver-color=ff005566 \
+--ringwrong-color=ff005566 \
+--ring-color=ff2a6d33 \
 --line-uses-inside \
---keyhl-color=ffffff66 \
---bshl-color=cc241d66 \
+--keyhl-color=ff0055ff \
+--bshl-color=ff073aff \
 --separator-color=00000000 \
---verif-color=ffffffff \
---wrong-color=cc241dff \
---modif-color=ffffffff \
---layout-color=ffffffff \
---time-color=ffffffff \
---date-color=ffffffbb \
---greeter-color=ffffff66 \
+--verif-color=ff2a6dff \
+--wrong-color=ff0055ff \
+--modif-color=ff2a6dff \
+--layout-color=ff2a6dff \
+--time-color=ff0055ff \
+--date-color=ff2a6dbb \
+--greeter-color=ff6d88aa \
 --ind-pos="x+w/2:y+h/2+100" \
 --time-pos="x+w/2:y+h/2-60" \
 --date-pos="x+w/2:y+h/2-20" \
