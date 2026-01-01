@@ -2,8 +2,6 @@
 
 Cyberpunk-themed i3wm configuration with red/neon aesthetics and dark background.
 
-![Desktop](screenshots/screenshot-1.png)
-
 ## Screenshots
 
 ![Screenshot 1](screenshots/imagem01.png)
