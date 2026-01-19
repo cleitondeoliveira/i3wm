@@ -50,7 +50,7 @@ if [[ "${1}" == "menu" ]]; then
     done <<< "$sinks"
 
     # Show menu and get selection
-    selected=$(echo -e "$menu_items" | rofi -dmenu -i -p "Select audio output:")
+    selected=$(echo -e "$menu_items" | rofi -dmenu -i -p "Audio Output" -theme ~/.config/rofi/power-menu.rasi)
 
     if [[ -n "$selected" ]]; then
         new_sink="${sink_map[$selected]}"

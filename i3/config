@@ -13,7 +13,7 @@ set $mod Mod4
 bindsym $mod+Return exec ghostty
 
 # Application launcher
-bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0a0a0a' -nf '#ff2a6d' -sb '#ff0055' -sf '#0a0a0a' -fn 'Iosevka-11'"
+bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0d1117' -nf '#c9d1d9' -sb '#58a6ff' -sf '#0d1117' -fn 'Iosevka-11'"
 
 # File manager
 bindsym $mod+f exec thunar
@@ -113,15 +113,15 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 # Theme & Appearance
 # ============================================
 
-# Colors (Cyberpunk Red/Neon theme)
-set $bg-color            #0a0a0a
-set $inactive-bg-color   #1a0a0f
-set $text-color          #ff2a6d
-set $inactive-text-color #5a2a3a
-set $urgent-bg-color     #ff0055
-set $accent-color        #ff073a
-set $border-color        #330011
-set $focused-border      #ff0055
+# Colors (Monochromatic Minimalist theme)
+set $bg-color            #0d1117
+set $inactive-bg-color   #161b22
+set $text-color          #c9d1d9
+set $inactive-text-color #8b949e
+set $urgent-bg-color     #f85149
+set $accent-color        #58a6ff
+set $border-color        #30363d
+set $focused-border      #58a6ff
 
 # Window colors
 #                       border            background         text                 indicator
@@ -135,7 +135,7 @@ gaps inner 6
 gaps outer 2
 
 # Window borders
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 
 # ============================================
 # Floating Windows Rules

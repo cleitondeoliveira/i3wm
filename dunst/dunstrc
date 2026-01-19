@@ -22,7 +22,7 @@
     padding = 12
     horizontal_padding = 12
     frame_width = 2
-    frame_color = "#ff0055"
+    frame_color = "#58a6ff"
     separator_color = frame
     gap_size = 4
     
@@ -46,19 +46,19 @@
     mouse_right_click = close_all
 
 [urgency_low]
-    background = "#0a0a0a"
-    foreground = "#ff2a6d"
-    frame_color = "#5a2a3a"
+    background = "#0d1117"
+    foreground = "#8b949e"
+    frame_color = "#30363d"
     timeout = 5
 
 [urgency_normal]
-    background = "#0a0a0a"
-    foreground = "#ff2a6d"
-    frame_color = "#ff0055"
+    background = "#0d1117"
+    foreground = "#c9d1d9"
+    frame_color = "#58a6ff"
     timeout = 8
 
 [urgency_critical]
-    background = "#1a0a0f"
-    foreground = "#ff0055"
-    frame_color = "#ff0055"
+    background = "#161b22"
+    foreground = "#f85149"
+    frame_color = "#f85149"
     timeout = 0

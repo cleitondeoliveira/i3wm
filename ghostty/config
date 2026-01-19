@@ -1,36 +1,36 @@
-# Ghostty Terminal - Cyberpunk Red/Neon Theme
+# Ghostty Terminal - Monochromatic Minimalist Theme
 
 # Font configuration
 font-family = Iosevka Nerd Font
 font-size = 11
 
-# Color Scheme - Dark background with readable colors
-background = 0a0a0a
-foreground = d4d4d4
+# Color Scheme - Monochromatic with subtle blue accent
+background = 0d1117
+foreground = c9d1d9
 
 # Cursor
-cursor-color = ffffff
+cursor-color = 58a6ff
 cursor-style = block
 
 # Normal colors
-palette = 0=#1e1e1e
-palette = 1=#f44747
-palette = 2=#4ec9b0
-palette = 3=#ffaf00
-palette = 4=#0a7aca
-palette = 5=#c586c0
-palette = 6=#4ec9b0
-palette = 7=#d4d4d4
+palette = 0=#161b22
+palette = 1=#f85149
+palette = 2=#7ee787
+palette = 3=#ffa657
+palette = 4=#58a6ff
+palette = 5=#bc8cff
+palette = 6=#39c5cf
+palette = 7=#b1bac4
 
 # Bright colors
-palette = 8=#6a6a6a
-palette = 9=#f44747
-palette = 10=#4ec9b0
-palette = 11=#ffaf00
-palette = 12=#0a7aca
-palette = 13=#c586c0
-palette = 14=#4ec9b0
-palette = 15=#ffffff
+palette = 8=#6e7681
+palette = 9=#ff7b72
+palette = 10=#56d364
+palette = 11=#ffbc6f
+palette = 12=#79c0ff
+palette = 13=#d2a8ff
+palette = 14=#56d4dd
+palette = 15=#f0f6fc
 
 # Window settings
 window-padding-x = 8
