@@ -1,0 +1,85 @@
+* {
+    background:     #0d1117;
+    background-alt: #161b22;
+    foreground:     #c9d1d9;
+    selected:       #58a6ff;
+    border:         #30363d;
+    urgent:         #f85149;
+}
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    width:            300px;
+    transparency:     "real";
+    location:         center;
+    anchor:           center;
+    fullscreen:       false;
+    border:           2px;
+    border-color:     @border;
+    border-radius:    8px;
+    background-color: @background;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+    spacing:          10px;
+    padding:          15px;
+}
+
+inputbar {
+    background-color: @background-alt;
+    text-color:       @foreground;
+    border-radius:    6px;
+    padding:          10px;
+    children:         [ prompt ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @selected;
+    font:             "Sudo Var Bold 11";
+}
+
+listview {
+    background-color: transparent;
+    columns:          1;
+    lines:            3;
+    spacing:          5px;
+    cycle:            true;
+    dynamic:          true;
+    layout:           vertical;
+}
+
+element {
+    background-color: transparent;
+    text-color:       @foreground;
+    padding:          12px 15px;
+    border-radius:    6px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    font:             "Sudo Var 11";
+}
+
+element selected.normal {
+    background-color: @background-alt;
+    text-color:       @selected;
+    border:           1px;
+    border-color:     @selected;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    text-color:       @urgent;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color:       @background;
+}

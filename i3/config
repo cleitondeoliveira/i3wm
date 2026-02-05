@@ -13,7 +13,7 @@ set $mod Mod4
 bindsym $mod+Return exec ghostty
 
 # Application launcher
-bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0d1117' -nf '#c9d1d9' -sb '#58a6ff' -sf '#0d1117' -fn 'Iosevka-11'"
+bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0d1117' -nf '#c9d1d9' -sb '#58a6ff' -sf '#0d1117' -fn 'Sudo Var-11'"
 
 # File manager
 bindsym $mod+f exec thunar
@@ -162,7 +162,7 @@ exec_always --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto -
 exec_always --no-startup-id nitrogen --restore
 
 # Font for window titles
-font pango:Iosevka 10
+font pango:Sudo Var 10
 
 # Polybar - status bar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
