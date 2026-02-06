@@ -1,10 +1,10 @@
 * {
-    background:     #0d1117;
-    background-alt: #161b22;
-    foreground:     #c9d1d9;
-    selected:       #58a6ff;
-    border:         #30363d;
-    urgent:         #f85149;
+    background:     #000000;
+    background-alt: #0a0a0a;
+    foreground:     #ffffff;
+    selected:       #ffffff;
+    border:         #222222;
+    urgent:         #ff0000;
 }
 
 configuration {

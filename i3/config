@@ -13,7 +13,7 @@ set $mod Mod4
 bindsym $mod+Return exec ghostty
 
 # Application launcher
-bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#0d1117' -nf '#c9d1d9' -sb '#58a6ff' -sf '#0d1117' -fn 'Sudo Var-11'"
+bindsym $mod+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#000000' -nf '#ffffff' -sb '#ffffff' -sf '#000000' -fn 'Sudo Var-11'"
 
 # File manager
 bindsym $mod+f exec thunar
@@ -81,15 +81,15 @@ bindsym $mod+Escape exec ~/.config/i3/power-menu.sh
 # Workspaces
 # ============================================
 
-set $ws1 "I"
-set $ws2 "II"
-set $ws3 "III"
-set $ws4 "IV"
-set $ws5 "V"
-set $ws6 "VI"
-set $ws7 "VII"
-set $ws8 "VIII"
-set $ws9 "IX"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 
 # Switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -113,15 +113,15 @@ bindsym $mod+Shift+5 move container to workspace $ws5
 # Theme & Appearance
 # ============================================
 
-# Colors (Monochromatic Minimalist theme)
-set $bg-color            #0d1117
-set $inactive-bg-color   #161b22
-set $text-color          #c9d1d9
-set $inactive-text-color #8b949e
-set $urgent-bg-color     #f85149
-set $accent-color        #58a6ff
-set $border-color        #30363d
-set $focused-border      #58a6ff
+# Colors (Pure Black Minimalist theme - matching reference image)
+set $bg-color            #000000
+set $inactive-bg-color   #0a0a0a
+set $text-color          #ffffff
+set $inactive-text-color #666666
+set $urgent-bg-color     #ff0000
+set $accent-color        #ffffff
+set $border-color        #222222
+set $focused-border      #ffffff
 
 # Window colors
 #                       border            background         text                 indicator
@@ -130,8 +130,8 @@ client.unfocused        $border-color     $inactive-bg-color $inactive-text-colo
 client.focused_inactive $border-color     $inactive-bg-color $inactive-text-color $border-color
 client.urgent           $urgent-bg-color  $urgent-bg-color   $text-color          $urgent-bg-color
 
-# Gaps
-gaps inner 6
+# Gaps (larger gaps like reference image)
+gaps inner 5
 gaps outer 2
 
 # Window borders

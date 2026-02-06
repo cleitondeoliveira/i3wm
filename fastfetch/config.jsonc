@@ -3,23 +3,23 @@
     "logo": {
         "type": "small",
         "color": {
-            "1": "red"
+            "1": "white"
         }
     },
     "display": {
-        "separator": " → ",
+        "separator": "  ",
         "color": {
-            "keys": "red",
-            "title": "red"
+            "keys": "white",
+            "title": "white"
         }
     },
     "modules": [
         {
             "type": "title",
             "color": {
-                "user": "red",
-                "at": "white",
-                "host": "cyan"
+                "user": "white",
+                "at": "gray",
+                "host": "white"
             }
         },
         {

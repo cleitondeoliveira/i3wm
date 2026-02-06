@@ -1,36 +1,36 @@
-# Ghostty Terminal - Monochromatic Minimalist Theme
+# Ghostty Terminal - Pure Black Minimalist Theme
 
 # Font configuration
 font-family = Sudo Var
 font-size = 11
 
-# Color Scheme - Monochromatic with subtle blue accent
-background = 0d1117
-foreground = c9d1d9
+# Color Scheme - Pure black/white minimalist
+background = #000000
+foreground = #ffffff
 
 # Cursor
-cursor-color = 58a6ff
+cursor-color = #ffffff
 cursor-style = block
 
-# Normal colors
-palette = 0=#161b22
-palette = 1=#f85149
-palette = 2=#7ee787
-palette = 3=#ffa657
-palette = 4=#58a6ff
-palette = 5=#bc8cff
-palette = 6=#39c5cf
-palette = 7=#b1bac4
+# Normal colors (grayscale minimal)
+palette = 0=#000000
+palette = 1=#ff0000
+palette = 2=#00ff00
+palette = 3=#ffff00
+palette = 4=#ffffff
+palette = 5=#ff00ff
+palette = 6=#00ffff
+palette = 7=#ffffff
 
 # Bright colors
-palette = 8=#6e7681
-palette = 9=#ff7b72
-palette = 10=#56d364
-palette = 11=#ffbc6f
-palette = 12=#79c0ff
-palette = 13=#d2a8ff
-palette = 14=#56d4dd
-palette = 15=#f0f6fc
+palette = 8=#666666
+palette = 9=#ff5555
+palette = 10=#55ff55
+palette = 11=#ffff55
+palette = 12=#aaaaaa
+palette = 13=#ff55ff
+palette = 14=#55ffff
+palette = 15=#ffffff
 
 # Window settings
 window-padding-x = 8
